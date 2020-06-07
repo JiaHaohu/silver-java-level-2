@@ -33,25 +33,26 @@ public class LonelyNumberRemover {
             return numbers;
         }
 
+        int[] result = numbers.clone();
+
         for (int i = 1; i < numbers.length - 1; i++) {
             if (numbers[i] == targetValue) {
-                replaceLonelyNumber(i, numbers);
+                replaceLonelyNumber(i, result);
             }
         }
 
-        return numbers;
+        return result;
         // --end->
-    }
-
-    private static void replaceLonelyNumber(int i, int[] numbers) {
-        if (numbers[i] != numbers[i - 1] && numbers[i] != numbers[i + 1]) {
-            numbers[i] = Math.max(numbers[i - 1], numbers[i + 1]);
-        }
     }
 
     // TODO:
     // You can add additional members if you want
     // <-start-
+    private static void replaceLonelyNumber(int i, int[] numbers) {
+        if (numbers[i] != numbers[i - 1] && numbers[i] != numbers[i + 1]) {
+            numbers[i] = Math.max(numbers[i - 1], numbers[i + 1]);
+        }
+    }
 
     // --end-->
 }
