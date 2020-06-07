@@ -17,7 +17,7 @@ public class LonelyNumberRemover {
      *     <li>{@code removeLonelyNumber([3, 4], 3)} returns {@code [3, 4]}</li>
      * </ul>
      *
-     * @param numbers The given number array.
+     * @param numbers     The given number array.
      * @param targetValue Then given value.
      * @return The processed array.
      */
@@ -25,7 +25,11 @@ public class LonelyNumberRemover {
         // TODO:
         // Please implement the method
         // <-start-
-        throw new RuntimeException("Delete me!");
+        if (numbers == null) {
+            return null;
+        }
+
+        return new int[10];
         // --end->
     }
 
