@@ -33,8 +33,20 @@ public class LonelyNumberRemover {
             return numbers;
         }
 
-        return new int[10];
+        for (int i = 1; i < numbers.length - 1; i++) {
+            if (numbers[i] == targetValue) {
+                replaceLonelyNumber(i, numbers);
+            }
+        }
+
+        return numbers;
         // --end->
+    }
+
+    private static void replaceLonelyNumber(int i, int[] numbers) {
+        if (numbers[i] != numbers[i - 1] && numbers[i] != numbers[i + 1]) {
+            numbers[i] = Math.max(numbers[i - 1], numbers[i + 1]);
+        }
     }
 
     // TODO:
