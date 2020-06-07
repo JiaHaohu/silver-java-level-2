@@ -29,6 +29,10 @@ public class LonelyNumberRemover {
             return null;
         }
 
+        if (numbers.length <= 2) {
+            return numbers;
+        }
+
         return new int[10];
         // --end->
     }
