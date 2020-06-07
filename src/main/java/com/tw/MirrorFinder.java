@@ -16,13 +16,16 @@ public class MirrorFinder {
      * </ul>
      *
      * @param text The given string.
-     *
      * @return The mirror text found at beginning and end.
      */
     public static String findMirror(String text) {
         // TODO:
         // Please implement the method
         // <-start-
+        if (text == null) {
+            return null;
+        }
+
         throw new RuntimeException("Delete me!");
         // --end->
     }
