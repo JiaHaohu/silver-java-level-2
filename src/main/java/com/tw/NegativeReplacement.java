@@ -25,7 +25,11 @@ public class NegativeReplacement {
         // TODO:
         // Please implement the method
         // <-start-
-        throw new RuntimeException("Delete me!");
+        if (text == null){
+            return null;
+        }
+
+        return new String();
         // --end->
     }
 
