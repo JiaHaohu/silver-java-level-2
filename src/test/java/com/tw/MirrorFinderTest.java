@@ -36,4 +36,12 @@ class MirrorFinderTest {
     void should_return_mirrored_text(String text, String expected) {
         assertEquals(expected, MirrorFinder.findMirror(text));
     }
+
+    @Test
+    void match(){
+        String str =" is is aaa";
+
+        System.out.println(str.indexOf(" is",4));
+
+    }
 }

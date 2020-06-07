@@ -1,5 +1,10 @@
 package com.tw;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class NegativeReplacement {
     /**
      * <p>
@@ -25,17 +30,53 @@ public class NegativeReplacement {
         // TODO:
         // Please implement the method
         // <-start-
-        if (text == null){
+        if (text == null) {
             return null;
         }
 
-        return new String();
+
+        List<Integer> indexOfIs = getIndexOfIs(text);
+
+        String result = replaceIs(indexOfIs,text);
+
+        return result;
         // --end->
     }
+
+    private static String replaceIs(List<Integer> indexOfIs, String text) {
+        String partOfNot = " not";
+        StringBuilder result = new StringBuilder();
+        int preIndex = 0;
+        for (Integer index : indexOfIs) {
+            result.append(text.substring(preIndex,index+2));
+            result.append(partOfNot);
+            preIndex = index+2;
+        }
+        if (preIndex < text.length()){
+            result.append(text.substring(preIndex,text.length()));
+        }
+        return result.toString();
+    }
+
 
     // TODO:
     // You can add additional members if you want
     // <-start-
+    private static List<Integer> getIndexOfIs(String text) {
+        int fromIndex = 0;
+        String match = "\\bis\\b";
 
+        List<Integer> indexList = new ArrayList<>();
+
+        Pattern compile = Pattern.compile(match);
+        Matcher matcher = compile.matcher(text);
+
+        while (matcher.find()){
+            indexList.add(matcher.start());
+        }
+
+
+        return indexList;
+    }
     // --end-->
 }
