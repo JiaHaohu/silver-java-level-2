@@ -32,6 +32,10 @@ public class BalanceFinder {
 
         int sumOfNumbers = getSumOfNumbers(numbers);
 
+        if (!isEven(sumOfNumbers)) {
+            return false;
+        }
+
         int halfOfSum = sumOfNumbers / 2;
 
         int cur = 0;
@@ -46,13 +50,15 @@ public class BalanceFinder {
         // --end->
     }
 
+    // TODO:
+    // You can add additional members if you want
+    // <-start-
     private static int getSumOfNumbers(int[] numbers) {
         return Arrays.stream(numbers).reduce((a, b) -> a + b).getAsInt();
     }
 
-    // TODO:
-    // You can add additional members if you want
-    // <-start-
-
+    private static boolean isEven(int sum) {
+        return sum % 2 == 0 ? true : false;
+    }
     // --end-->
 }
