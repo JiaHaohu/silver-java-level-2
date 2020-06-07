@@ -26,7 +26,24 @@ public class MirrorFinder {
             return null;
         }
 
-        throw new RuntimeException("Delete me!");
+        int left = 0;
+        int right = text.length()-1;
+
+        StringBuilder mirrorPart = new StringBuilder();
+
+        while (left < text.length() && right >= 0) {
+
+            if (text.charAt(left) == text.charAt(right)) {
+                mirrorPart.append(text.charAt(left));
+            } else {
+                return mirrorPart.toString();
+            }
+
+            left++;
+            right--;
+        }
+
+        return mirrorPart.toString();
         // --end->
     }
 
