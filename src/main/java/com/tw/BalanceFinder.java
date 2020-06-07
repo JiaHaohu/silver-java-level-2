@@ -20,14 +20,34 @@ public class BalanceFinder {
      *
      * @param numbers The given array.
      * @return {@code true} if the balanced place can be found. Or else, returns
-     *   {@code false}.
+     * {@code false}.
      */
     public static boolean isBalanced(int[] numbers) {
         // TODO:
         // Please implement the method
         // <-start-
-        throw new RuntimeException("Delete me!");
+        if (numbers == null || numbers.length < 2) {
+            return false;
+        }
+
+        int sumOfNumbers = getSumOfNumbers(numbers);
+
+        int halfOfSum = sumOfNumbers / 2;
+
+        int cur = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            cur += numbers[i];
+            if (cur == halfOfSum) {
+                return true;
+            }
+        }
+
+        return false;
         // --end->
+    }
+
+    private static int getSumOfNumbers(int[] numbers) {
+        return Arrays.stream(numbers).reduce((a, b) -> a + b).getAsInt();
     }
 
     // TODO:
