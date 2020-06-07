@@ -26,7 +26,7 @@ public class BalanceFinder {
         // TODO:
         // Please implement the method
         // <-start-
-        if (numbers == null || numbers.length < 2) {
+        if (numbers == null || numbers.length <= 1) {
             return false;
         }
 
